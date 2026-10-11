@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dgdeb1s3w664y"]
+
+[ext_resource type="PackedScene" uid="uid://dfuco5fq26f87" path="res://Scene/Character/standardman_panties.tscn" id="1_nca6y"]
+[ext_resource type="Script" uid="uid://dl8o18k3xtdnl" path="res://GDscript/character.gd" id="2_character"]
+[ext_resource type="Script" uid="uid://cx32c1a4yyykx" path="res://GDscript/camera_controller.gd" id="3_camera"]
+[ext_resource type="Script" uid="uid://nogmgmxrjf0r" path="res://GDscript/anime_controller.gd" id="4_anime"]
+[ext_resource type="Script" uid="uid://dhj88w3ynt1uk" path="res://GDscript/damage_controller.gd" id="5_damage"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c6m5m6hdvb24d" path="res://Scene/Character/standardman_locomotion.tres" id="6_states"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nca6y"]
+height = 1.8
+radius = 0.32
+
+[node name="standardman" type="CharacterBody3D" unique_id=1000046508]
+collision_mask = 3
+script = ExtResource("2_character")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=820322010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CylinderShape3D_nca6y")
+
+[node name="ClimbRay" type="RayCast3D" parent="." unique_id=1168278409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+target_position = Vector3(0, 0, 1.2)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="standardman_panties" parent="." unique_id=669086940 instance=ExtResource("1_nca6y")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1287001001]
+active = false
+root_node = NodePath("../standardman_panties")
+tree_root = ExtResource("6_states")
+anim_player = NodePath("../standardman_panties/AnimationPlayer")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=330291140]
+
+[node name="Cam_h" type="Node3D" parent="CameraRig" unique_id=2084642537]
+
+[node name="Cam_v" type="Node3D" parent="CameraRig/Cam_h" unique_id=1094979019]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/Cam_h/Cam_v" unique_id=1858948815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+current = true
+
+[node name="Controller" type="Node" parent="." unique_id=1287001002]
+
+[node name="AnimeController" type="Node" parent="Controller" unique_id=1287001003]
+script = ExtResource("4_anime")
+
+[node name="CameraController" type="Node" parent="Controller" unique_id=1287001004]
+script = ExtResource("3_camera")
+
+[node name="DamageController" type="Node" parent="Controller" unique_id=1287001005]
+script = ExtResource("5_damage")

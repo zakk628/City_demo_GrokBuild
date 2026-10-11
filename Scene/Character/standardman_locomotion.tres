@@ -1,0 +1,92 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://c6m5m6hdvb24d"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qjfr5"]
+animation = &"stdman_move00_idle_01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gaqgq"]
+animation = &"stdman_move01_walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0yw2"]
+animation = &"stdman_move02_run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_17t2r"]
+animation = &"stdman_move03_sprint"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0sqm"]
+animation = &"stdman_move04_jump_01_start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x6box"]
+animation = &"stdman_move04_jump_02_air"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7pkfu"]
+animation = &"stdman_move04_jump_03_land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wepy7"]
+animation = &"stdman_move05_roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tn3mj"]
+animation = &"stdman_move06_dodge01_forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8tghe"]
+animation = &"stdman_move06_dodge02_backward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4n7ay"]
+animation = &"stdman_move06_dodge03_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3m3m"]
+animation = &"stdman_move06_dodge04_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iv62l"]
+animation = &"stdman_prk00_climb_idle_01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_byabo"]
+animation = &"stdman_prk01_climb_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7fspo"]
+animation = &"stdman_prk02_climb_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hcem3"]
+animation = &"stdman_prk03_climb_shimmy_01_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5a6xx"]
+animation = &"stdman_prk03_climb_shimmy_02_R"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88s1d"]
+advance_mode = 2
+
+[resource]
+states/stdman_move00_idle_01/node = SubResource("AnimationNodeAnimation_qjfr5")
+states/stdman_move00_idle_01/position = Vector2(280, 140)
+states/stdman_move01_walk/node = SubResource("AnimationNodeAnimation_gaqgq")
+states/stdman_move01_walk/position = Vector2(520, 140)
+states/stdman_move02_run/node = SubResource("AnimationNodeAnimation_v0yw2")
+states/stdman_move02_run/position = Vector2(760, 140)
+states/stdman_move03_sprint/node = SubResource("AnimationNodeAnimation_17t2r")
+states/stdman_move03_sprint/position = Vector2(1000, 140)
+states/stdman_move04_jump_01_start/node = SubResource("AnimationNodeAnimation_a0sqm")
+states/stdman_move04_jump_01_start/position = Vector2(280, 260)
+states/stdman_move04_jump_02_air/node = SubResource("AnimationNodeAnimation_x6box")
+states/stdman_move04_jump_02_air/position = Vector2(520, 260)
+states/stdman_move04_jump_03_land/node = SubResource("AnimationNodeAnimation_7pkfu")
+states/stdman_move04_jump_03_land/position = Vector2(760, 260)
+states/stdman_move05_roll/node = SubResource("AnimationNodeAnimation_wepy7")
+states/stdman_move05_roll/position = Vector2(1000, 260)
+states/stdman_move06_dodge01_forward/node = SubResource("AnimationNodeAnimation_tn3mj")
+states/stdman_move06_dodge01_forward/position = Vector2(280, 380)
+states/stdman_move06_dodge02_backward/node = SubResource("AnimationNodeAnimation_8tghe")
+states/stdman_move06_dodge02_backward/position = Vector2(520, 380)
+states/stdman_move06_dodge03_left/node = SubResource("AnimationNodeAnimation_4n7ay")
+states/stdman_move06_dodge03_left/position = Vector2(760, 380)
+states/stdman_move06_dodge04_right/node = SubResource("AnimationNodeAnimation_c3m3m")
+states/stdman_move06_dodge04_right/position = Vector2(1000, 380)
+states/stdman_prk00_climb_idle_01/node = SubResource("AnimationNodeAnimation_iv62l")
+states/stdman_prk00_climb_idle_01/position = Vector2(280, 500)
+states/stdman_prk01_climb_up/node = SubResource("AnimationNodeAnimation_byabo")
+states/stdman_prk01_climb_up/position = Vector2(520, 500)
+states/stdman_prk02_climb_down/node = SubResource("AnimationNodeAnimation_7fspo")
+states/stdman_prk02_climb_down/position = Vector2(760, 500)
+states/stdman_prk03_climb_shimmy_01_L/node = SubResource("AnimationNodeAnimation_hcem3")
+states/stdman_prk03_climb_shimmy_01_L/position = Vector2(1000, 500)
+states/stdman_prk03_climb_shimmy_02_R/node = SubResource("AnimationNodeAnimation_5a6xx")
+states/stdman_prk03_climb_shimmy_02_R/position = Vector2(280, 620)
+transitions = ["Start", "stdman_move00_idle_01", SubResource("AnimationNodeStateMachineTransition_88s1d")]

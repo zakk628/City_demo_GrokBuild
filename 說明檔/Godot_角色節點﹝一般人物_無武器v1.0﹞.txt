@@ -1,0 +1,42 @@
+==================== 角色節點 ﹝架構﹞==================== basic
+
+standardman (CharacterBody3D)           ← Godot 模型場景根節點   ※名稱依照實際角色更換
+├── CollisionShape3D
+├── standardman_panties (Node3D)     ← Blender 匯入模型根節點 ※名稱依照實際角色更換
+├── AnimationTree                    ← AnimationTree 動畫樹
+├── CameraRig (Node3D)               ← Camera 攝影機
+└── Controller (Node)                ← GDscript 控制腳本
+    ├── AnimeController (Node)          ← 動畫腳本﹝animation﹞
+    ├── CameraController (Node)         ← 鏡頭腳本﹝camera﹞
+    └── DamageController (Node)         ← 傷害腳本﹝damage﹞
+
+
+==================== 角色節點 ﹝展開﹞==================== custom
+
+standardman (CharacterBody3D)             ← Godot模型場景/※角色腳本﹝character﹞
+├── CollisionShape3D
+│ 
+├── standardman_panties (Node3D)       ← Blender匯入模型/※視覺根節點
+│   └── human_proto_01 (Node3D)
+│       └── prototype_rig (Node3D)
+│           ├── Skeleton3D             ← 所有骨頭(子節點省略不列出)
+│           └── AnimationPlayer        ← 動畫撥放
+│
+├── AnimationTree                      ← AnimationTree 動畫樹
+│
+├── CameraRig (Node3D)                 ← CameraRig 攝影機控制
+│   └── Cam_h (Node3D)                 ← 鏡頭水平控制horizon
+│       └── Cam_v (Node3D)             ← 鏡頭垂直控制vertical
+│           └── Camera3D               ← 實際的攝影機配置
+│
+└── Controller (Node)                  ← 控制相關腳本
+    ├── AnimeController (Node)          ← 動畫腳本﹝animation﹞
+    ├── CameraController (Node)         ← 鏡頭腳本﹝camera﹞
+    └── DamageController (Node)         ← 傷害腳本﹝damage﹞
+
+
+==================== AnimationTree 動畫節點樹 ====================
+
+尚未確認，請自行製作可用的節點狀態
+
+

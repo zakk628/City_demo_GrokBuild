@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://rcmrwyeljffi"]
+
+[ext_resource type="PackedScene" uid="uid://dgdeb1s3w664y" path="res://Scene/Character/standardman.tscn" id="1_player"]
+
+[sub_resource type="StandardMaterial3D" id="mat_floor"]
+albedo_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_wall"]
+albedo_color = Color(0.752941, 0.764706, 0.776471, 1)
+
+[sub_resource type="BoxMesh" id="mesh_marker"]
+size = Vector3(2, 0.4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="mat_marker"]
+albedo_color = Color(0.894118, 0.709804, 0.415686, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_building"]
+albedo_color = Color(0.909804, 0.909804, 0.894118, 1)
+
+[sub_resource type="BoxShape3D" id="shape_climb"]
+size = Vector3(10, 6, 0.6)
+
+[node name="Stage01" type="Node3D" unique_id=1673563880]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1375071252]
+use_collision = true
+size = Vector3(40, 0.2, 40)
+material = SubResource("mat_floor")
+
+[node name="ClimbWall" type="CSGBox3D" parent="." unique_id=21878482 groups=["climb_wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12)
+use_collision = true
+size = Vector3(10, 6, 0.4)
+material = SubResource("mat_wall")
+
+[node name="ClimbVolume" type="Area3D" parent="ClimbWall" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbWall/ClimbVolume"]
+shape = SubResource("shape_climb")
+
+[node name="ClimbMarker" type="MeshInstance3D" parent="ClimbWall" unique_id=1760565682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0.25)
+mesh = SubResource("mesh_marker")
+surface_material_override/0 = SubResource("mat_marker")
+
+[node name="Building" type="CSGBox3D" parent="." unique_id=257262009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 6)
+use_collision = true
+size = Vector3(8, 5, 8)
+material = SubResource("mat_building")
+
+[node name="Player" parent="." unique_id=228036858 instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=488613191]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 0)
+shadow_enabled = true

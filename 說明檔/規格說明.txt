@@ -1,0 +1,55 @@
+專案：Godot 4.6。只做階段一移動測試，不寫戰鬥。
+場景檔：stage01_whitebox.tscn。沒有就新建，不要另做樓梯、檐口、蹲伏。
+
+節點
+- Floor：CSGBox3D，size (40, 0.2, 40)，albedo #808080，roughness 1。
+- ClimbWall：CSGBox3D，位置 (0, 3, -12)，size (10, 6, 0.4)，albedo #C0C3C6。
+- ClimbMarker：ClimbWall 的子節點，位置 (0, -2.5, 0.25)，size (2, 0.4, 0.1)，albedo #E4B56A。
+- Building：CSGBox3D，位置 (10, 2.5, 6)，size (8, 5, 8)，albedo #E8E8E4。只當方位，不參加攀爬。
+- Player：CharacterBody3D，放在 (0, 0.2, 0)。骨架根位移讀 main_control_Lv01。翻滾對不齊時改讀 main_control_Lv02。
+- Camera3D、DirectionalLight3D 各一。
+
+輸入
+- WASD：奔跑 run。
+- Alt+WASD：走路 walk。
+- Shift+WASD：衝刺 sprint。未碰到 ClimbWall 時不得進入攀爬。
+- Space：起跳。結束後若方向鍵仍按著，回到進入跳躍前的 walk、run 或 sprint，否則回 idle。
+- Ctrl+方向+Space：roll，播放一次，不可循環。
+- Ctrl+Space，無方向：不動作。有方向才播 dodge01_forward、dodge02_backward、dodge03_left、dodge04_right。
+- 按住 Shift 且碰到 ClimbWall：進入 climb_idle_01，切斷走路、奔跑、蹲、鎖定。
+- 攀爬中 W/S：climb_up、climb_down。A/D：climb_shimmy_01_L、climb_shimmy_02_R。放開回 climb_idle_01。
+- 放開 Shift：離開攀爬，恢復地面移動。
+
+動畫只接這些已完成片段
+stdman_move00_idle_01
+stdman_move01_walk
+stdman_move02_run
+stdman_move03_sprint
+stdman_move04_jump_01_start
+stdman_move04_jump_02_air
+stdman_move04_jump_03_land
+stdman_move05_roll
+stdman_move06_dodge01_forward
+stdman_move06_dodge02_backward
+stdman_move06_dodge03_left
+stdman_move06_dodge04_right
+stdman_prk00_climb_idle_01
+stdman_prk01_climb_up
+stdman_prk02_climb_down
+stdman_prk03_climb_shimmy_01_L
+stdman_prk03_climb_shimmy_02_R
+
+不要接 crouch、lock、stair、cjump、cross、slide、Reaction。
+
+測試順序
+0 不按鍵，循環 idle_01。
+1 Alt+方向，播 walk，放開回 idle_01。
+2 WASD，播 run。
+3 WASD+Shift 且離牆，播 sprint。
+4 Space，依序 start、air、land。
+5 Ctrl+方向+Space，roll 一次後結束。
+6 Ctrl+Space 配 W/S/A/D，四向 dodge 各一次。
+7 朝 ClimbMarker 按住 Shift，播 climb_idle_01。
+8 攀爬中 W 再 S，播 climb_up、climb_down。
+9 攀爬中 A 再 D，播左右 shimmy。
+10 放開 Shift，回到地面移動。
