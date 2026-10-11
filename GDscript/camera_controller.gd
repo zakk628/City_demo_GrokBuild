@@ -7,17 +7,18 @@ extends Node
 # Negative pitch raises the camera: Rx(pitch) sends local +Z to (0, -sin(pitch), cos(pitch)).
 
 @export var pivot_height := 1.4
-@export var distance := 2.0
-@export var min_distance := 2.0
-@export var max_distance := 6.0
-@export var default_pitch_deg := -18.0
+@export var distance := 5.5
+@export var min_distance := 4.0
+@export var max_distance := 8.0
+@export var default_pitch_deg := -12.0
 @export var min_pitch_deg := -40.0
 @export var max_pitch_deg := 60.0
 @export var mouse_degrees_per_pixel := 0.12
 @export var follow_sharpness := 22.0
-@export var boom_sharpness := 18.0
+@export var boom_sharpness := 8.0
 @export var collision_margin := 0.25
-@export var collision_mask := 1
+# Layer 1 is the ground. Layer 2 is the shop and station solids.
+@export var collision_mask := 3
 
 var _yaw := 0.0
 var _pitch_deg := -18.0
@@ -37,6 +38,9 @@ func _ready() -> void:
 	_horizontal = _rig.get_node("Cam_h") as Node3D
 	_vertical = _rig.get_node("Cam_h/Cam_v") as Node3D
 	_camera = _rig.get_node("Cam_h/Cam_v/Camera3D") as Camera3D
+	_camera.fov = 42.0
+	_camera.projection = Camera3D.PROJECTION_PERSPECTIVE
+	_camera.rotation = Vector3.ZERO
 	_pitch_deg = clampf(default_pitch_deg, min_pitch_deg, max_pitch_deg)
 	_distance = clampf(distance, min_distance, max_distance)
 	_boom = _distance
@@ -104,7 +108,7 @@ func _update_boom(delta: float, body: Node3D) -> void:
 		var hit := space.intersect_ray(query)
 		if not hit.is_empty():
 			var clear := origin.distance_to(hit.position) - collision_margin
-			dist = min(want, max(0.15, clear))
+			dist = min(want, max(1.5, clear))
 	var blend := 1.0 - exp(-boom_sharpness * delta)
 	_boom = lerpf(_boom, dist, blend)
 	_camera.position = Vector3(0.0, 0.0, _boom)

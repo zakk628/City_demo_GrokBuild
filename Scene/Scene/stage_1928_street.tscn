@@ -1,0 +1,1237 @@
+[gd_scene format=3 uid="uid://d1axdstqdhuop"]
+
+[ext_resource type="PackedScene" uid="uid://dgdeb1s3w664y" path="res://Scene/Character/standardman.tscn" id="1_player"]
+
+[sub_resource type="Environment" id="ENV"]
+background_mode = 1
+background_color = Color(0.64, 0.72, 0.8, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.82, 0.85, 1)
+ambient_light_energy = 0.45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.62, 0.63, 0.58, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.4, 0.4, 0.42, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.76, 0.75, 0.71, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4"]
+albedo_color = Color(0.88, 0.86, 0.8, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5"]
+albedo_color = Color(0.78, 0.8, 0.82, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6"]
+albedo_color = Color(0.7, 0.72, 0.74, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7"]
+albedo_color = Color(0.52, 0.54, 0.56, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8"]
+albedo_color = Color(0.78, 0.78, 0.76, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_9"]
+albedo_color = Color(0.84, 0.83, 0.8, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10"]
+albedo_color = Color(0.12, 0.12, 0.13, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11"]
+albedo_color = Color(0.95, 0.78, 0.12, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13"]
+albedo_color = Color(0.46, 0.5, 0.52, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14"]
+albedo_color = Color(0.32, 0.32, 0.34, 1)
+metallic = 0.0
+roughness = 1.0
+[sub_resource type="BoxMesh" id="BoxMesh_15"]
+size = Vector3(64, 0.39, 84)
+[sub_resource type="BoxShape3D" id="BoxShape3D_16"]
+size = Vector3(64, 0.4, 84)
+[sub_resource type="BoxMesh" id="BoxMesh_17"]
+size = Vector3(14, 0.08, 46)
+[sub_resource type="BoxMesh" id="BoxMesh_18"]
+size = Vector3(2, 0.08, 46)
+[sub_resource type="BoxMesh" id="BoxMesh_19"]
+size = Vector3(2, 0.08, 46)
+[sub_resource type="BoxMesh" id="BoxMesh_20"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_21"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_22"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_23"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_24"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_25"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_26"]
+size = Vector3(0.06, 9.6, 0.12)
+[sub_resource type="BoxMesh" id="BoxMesh_27"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_28"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_29"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_30"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_31"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_32"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_33"]
+size = Vector3(1.05, 0.28, 13.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_34"]
+size = Vector3(1.05, 0.28, 13.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_35"]
+size = Vector3(13.2, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_36"]
+size = Vector3(12.936, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_37"]
+size = Vector3(12.936, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_38"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_39"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_40"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_41"]
+size = Vector3(8, 3.22, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_42"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxShape3D" id="BoxShape3D_43"]
+size = Vector3(8, 3.2, 6.62)
+[sub_resource type="BoxMesh" id="BoxMesh_44"]
+size = Vector3(0.06, 9.6, 0.12)
+[sub_resource type="BoxMesh" id="BoxMesh_45"]
+size = Vector3(8, 3.22, 6.64)
+[sub_resource type="BoxShape3D" id="BoxShape3D_46"]
+size = Vector3(8, 3.22, 6.64)
+[sub_resource type="BoxMesh" id="BoxMesh_47"]
+size = Vector3(8, 3.22, 6.64)
+[sub_resource type="BoxShape3D" id="BoxShape3D_48"]
+size = Vector3(8, 3.22, 6.64)
+[sub_resource type="BoxMesh" id="BoxMesh_49"]
+size = Vector3(8, 3.2, 6.64)
+[sub_resource type="BoxShape3D" id="BoxShape3D_50"]
+size = Vector3(8, 3.2, 6.64)
+[sub_resource type="BoxMesh" id="BoxMesh_51"]
+size = Vector3(0.06, 9.6, 0.12)
+[sub_resource type="BoxMesh" id="BoxMesh_52"]
+size = Vector3(8, 3.22, 6.22)
+[sub_resource type="BoxShape3D" id="BoxShape3D_53"]
+size = Vector3(8, 3.22, 6.22)
+[sub_resource type="BoxMesh" id="BoxMesh_54"]
+size = Vector3(8, 3.22, 6.22)
+[sub_resource type="BoxShape3D" id="BoxShape3D_55"]
+size = Vector3(8, 3.22, 6.22)
+[sub_resource type="BoxMesh" id="BoxMesh_56"]
+size = Vector3(8, 3.2, 6.22)
+[sub_resource type="BoxShape3D" id="BoxShape3D_57"]
+size = Vector3(8, 3.2, 6.22)
+[sub_resource type="BoxMesh" id="BoxMesh_58"]
+size = Vector3(1.05, 0.28, 19.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_59"]
+size = Vector3(1.05, 0.28, 19.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_60"]
+size = Vector3(19.4, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_61"]
+size = Vector3(19.012, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_62"]
+size = Vector3(19.012, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_63"]
+size = Vector3(8, 3.22, 7.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_64"]
+size = Vector3(8, 3.22, 7.4)
+[sub_resource type="BoxMesh" id="BoxMesh_65"]
+size = Vector3(8, 3.22, 7.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_66"]
+size = Vector3(8, 3.22, 7.4)
+[sub_resource type="BoxMesh" id="BoxMesh_67"]
+size = Vector3(8, 3.2, 7.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_68"]
+size = Vector3(8, 3.2, 7.4)
+[sub_resource type="BoxMesh" id="BoxMesh_69"]
+size = Vector3(1.05, 0.28, 7.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_70"]
+size = Vector3(1.05, 0.28, 7.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_71"]
+size = Vector3(7.4, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_72"]
+size = Vector3(7.252, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_73"]
+size = Vector3(7.252, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_74"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_75"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_76"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_77"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_78"]
+size = Vector3(8, 3.2, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_79"]
+size = Vector3(8, 3.2, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_80"]
+size = Vector3(0.06, 9.6, 0.12)
+[sub_resource type="BoxMesh" id="BoxMesh_81"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_82"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_83"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_84"]
+size = Vector3(8, 3.22, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_85"]
+size = Vector3(8, 3.2, 7.42)
+[sub_resource type="BoxShape3D" id="BoxShape3D_86"]
+size = Vector3(8, 3.2, 7.42)
+[sub_resource type="BoxMesh" id="BoxMesh_87"]
+size = Vector3(1.05, 0.28, 14.8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_88"]
+size = Vector3(1.05, 0.28, 14.8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_89"]
+size = Vector3(14.8, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_90"]
+size = Vector3(14.504, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_91"]
+size = Vector3(14.504, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_92"]
+size = Vector3(8, 3.22, 7.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_93"]
+size = Vector3(8, 3.22, 7.2)
+[sub_resource type="BoxMesh" id="BoxMesh_94"]
+size = Vector3(8, 3.22, 7.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_95"]
+size = Vector3(8, 3.22, 7.2)
+[sub_resource type="BoxMesh" id="BoxMesh_96"]
+size = Vector3(8, 3.2, 7.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_97"]
+size = Vector3(8, 3.2, 7.2)
+[sub_resource type="BoxMesh" id="BoxMesh_98"]
+size = Vector3(1.05, 0.28, 7.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_99"]
+size = Vector3(1.05, 0.28, 7.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_100"]
+size = Vector3(7.2, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_101"]
+size = Vector3(7.056, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_102"]
+size = Vector3(7.056, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_103"]
+size = Vector3(10, 16, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_104"]
+size = Vector3(10, 16, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_105"]
+size = Vector3(3.2, 3, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_106"]
+size = Vector3(3.2, 3, 0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_107"]
+size = Vector3(12.05, 9, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_108"]
+size = Vector3(12.05, 9, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_109"]
+size = Vector3(12.05, 9, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_110"]
+size = Vector3(12.05, 9, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_111"]
+size = Vector3(12.05, 0.6, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_112"]
+size = Vector3(12.05, 0.6, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_113"]
+size = Vector3(12.05, 0.6, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_114"]
+size = Vector3(12.05, 0.6, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_115"]
+size = Vector3(34, 0.6, 7.85)
+[sub_resource type="BoxShape3D" id="BoxShape3D_116"]
+size = Vector3(34, 0.6, 7.85)
+[sub_resource type="BoxMesh" id="BoxMesh_117"]
+size = Vector3(9, 0.28, 1.75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_118"]
+size = Vector3(9, 0.28, 1.75)
+[sub_resource type="BoxMesh" id="BoxMesh_119"]
+size = Vector3(9, 9.05, 0.45)
+[sub_resource type="BoxShape3D" id="BoxShape3D_120"]
+size = Vector3(9, 9.05, 0.45)
+[sub_resource type="BoxShape3D" id="BoxShape3D_121"]
+size = Vector3(9, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_122"]
+size = Vector3(8.82, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_123"]
+size = Vector3(8.82, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_124"]
+size = Vector3(9, 0.28, 1.75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_125"]
+size = Vector3(9, 0.28, 1.75)
+[sub_resource type="BoxMesh" id="BoxMesh_126"]
+size = Vector3(9, 9.05, 0.45)
+[sub_resource type="BoxShape3D" id="BoxShape3D_127"]
+size = Vector3(9, 9.05, 0.45)
+[sub_resource type="BoxShape3D" id="BoxShape3D_128"]
+size = Vector3(9, 10, 0.9)
+[sub_resource type="BoxMesh" id="BoxMesh_129"]
+size = Vector3(8.82, 1.5, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_130"]
+size = Vector3(8.82, 0.22, 0.08)
+[sub_resource type="BoxMesh" id="BoxMesh_131"]
+size = Vector3(28, 0.36, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_132"]
+size = Vector3(28, 0.36, 4)
+[sub_resource type="BoxMesh" id="BoxMesh_133"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_134"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_135"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_136"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_137"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_138"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_139"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_140"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_141"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_142"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_143"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_144"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_145"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_146"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxMesh" id="BoxMesh_147"]
+size = Vector3(0.4, 3.64, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_148"]
+size = Vector3(0.4, 3.64, 0.4)
+
+[node name="Stage1928" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -4)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
+mesh = SubResource("BoxMesh_15")
+surface_material_override/0 = SubResource("StandardMaterial3D_1")
+
+[node name="Collision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_16")
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 2)
+mesh = SubResource("BoxMesh_17")
+surface_material_override/0 = SubResource("StandardMaterial3D_2")
+
+[node name="SidewalkEast" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.04, 2)
+mesh = SubResource("BoxMesh_18")
+surface_material_override/0 = SubResource("StandardMaterial3D_3")
+
+[node name="SidewalkWest" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.04, 2)
+mesh = SubResource("BoxMesh_19")
+surface_material_override/0 = SubResource("StandardMaterial3D_3")
+
+[node name="EastShops" type="Node3D" parent="."]
+
+[node name="WestShops" type="Node3D" parent="."]
+
+[node name="EastBay_0_0_F0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.61, 21.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_0_F0"]
+mesh = SubResource("BoxMesh_20")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_0_F0"]
+shape = SubResource("BoxShape3D_21")
+
+[node name="EastBay_0_0_F1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.81, 21.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_0_F1"]
+mesh = SubResource("BoxMesh_22")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_0_F1"]
+shape = SubResource("BoxShape3D_23")
+
+[node name="EastBay_0_0_F2" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8, 21.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_0_F2"]
+mesh = SubResource("BoxMesh_24")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_0_F2"]
+shape = SubResource("BoxShape3D_25")
+
+[node name="EastSeam_0_0" type="MeshInstance3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 4.8, 18.4)
+mesh = SubResource("BoxMesh_26")
+surface_material_override/0 = SubResource("StandardMaterial3D_14")
+
+[node name="EastBay_0_1_F0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.61, 15.11)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_1_F0"]
+mesh = SubResource("BoxMesh_27")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_1_F0"]
+shape = SubResource("BoxShape3D_28")
+
+[node name="EastBay_0_1_F1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.81, 15.11)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_1_F1"]
+mesh = SubResource("BoxMesh_29")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_1_F1"]
+shape = SubResource("BoxShape3D_30")
+
+[node name="EastBay_0_1_F2" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8, 15.11)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_0_1_F2"]
+mesh = SubResource("BoxMesh_31")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_0_1_F2"]
+shape = SubResource("BoxShape3D_32")
+
+[node name="EastEave_0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 9.46, 18.4)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastEave_0"]
+mesh = SubResource("BoxMesh_33")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastEave_0"]
+shape = SubResource("BoxShape3D_34")
+
+[node name="EastClimb_0" type="CSGBox3D" parent="EastShops"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 9.145, 5, 18.4)
+cast_shadow = 0
+use_collision = false
+size = Vector3(13.2, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="EastShops/EastClimb_0" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastShops/EastClimb_0/ClimbVolume"]
+shape = SubResource("BoxShape3D_35")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="EastShops/EastClimb_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_36")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="EastShops/EastClimb_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_37")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="EastBay_1_0_F0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.61, 5.29)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_0_F0"]
+mesh = SubResource("BoxMesh_38")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_0_F0"]
+shape = SubResource("BoxShape3D_39")
+
+[node name="EastBay_1_0_F1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.81, 5.29)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_0_F1"]
+mesh = SubResource("BoxMesh_40")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_0_F1"]
+shape = SubResource("BoxShape3D_41")
+
+[node name="EastBay_1_0_F2" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8, 5.29)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_0_F2"]
+mesh = SubResource("BoxMesh_42")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_0_F2"]
+shape = SubResource("BoxShape3D_43")
+
+[node name="EastSeam_1_0" type="MeshInstance3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 4.8, 2)
+mesh = SubResource("BoxMesh_44")
+surface_material_override/0 = SubResource("StandardMaterial3D_14")
+
+[node name="EastBay_1_1_F0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.61, -1.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_1_F0"]
+mesh = SubResource("BoxMesh_45")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_1_F0"]
+shape = SubResource("BoxShape3D_46")
+
+[node name="EastBay_1_1_F1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.81, -1.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_1_F1"]
+mesh = SubResource("BoxMesh_47")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_1_F1"]
+shape = SubResource("BoxShape3D_48")
+
+[node name="EastBay_1_1_F2" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8, -1.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_1_F2"]
+mesh = SubResource("BoxMesh_49")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_1_F2"]
+shape = SubResource("BoxShape3D_50")
+
+[node name="EastSeam_1_1" type="MeshInstance3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 4.8, -4.6)
+mesh = SubResource("BoxMesh_51")
+surface_material_override/0 = SubResource("StandardMaterial3D_14")
+
+[node name="EastBay_1_2_F0" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.61, -7.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_2_F0"]
+mesh = SubResource("BoxMesh_52")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_2_F0"]
+shape = SubResource("BoxShape3D_53")
+
+[node name="EastBay_1_2_F1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 4.81, -7.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_2_F1"]
+mesh = SubResource("BoxMesh_54")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_2_F1"]
+shape = SubResource("BoxShape3D_55")
+
+[node name="EastBay_1_2_F2" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 8, -7.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastBay_1_2_F2"]
+mesh = SubResource("BoxMesh_56")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastBay_1_2_F2"]
+shape = SubResource("BoxShape3D_57")
+
+[node name="EastEave_1" type="StaticBody3D" parent="EastShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 9.46, -1.1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="EastShops/EastEave_1"]
+mesh = SubResource("BoxMesh_58")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="EastShops/EastEave_1"]
+shape = SubResource("BoxShape3D_59")
+
+[node name="EastClimb_1" type="CSGBox3D" parent="EastShops"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 9.145, 5, -1.1)
+cast_shadow = 0
+use_collision = false
+size = Vector3(19.4, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="EastShops/EastClimb_1" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastShops/EastClimb_1/ClimbVolume"]
+shape = SubResource("BoxShape3D_60")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="EastShops/EastClimb_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_61")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="EastShops/EastClimb_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_62")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="WestBay_0_0_F0" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.61, 21.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_0_0_F0"]
+mesh = SubResource("BoxMesh_63")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_0_0_F0"]
+shape = SubResource("BoxShape3D_64")
+
+[node name="WestBay_0_0_F1" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4.81, 21.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_0_0_F1"]
+mesh = SubResource("BoxMesh_65")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_0_0_F1"]
+shape = SubResource("BoxShape3D_66")
+
+[node name="WestBay_0_0_F2" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 8, 21.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_0_0_F2"]
+mesh = SubResource("BoxMesh_67")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_0_0_F2"]
+shape = SubResource("BoxShape3D_68")
+
+[node name="WestEave_0" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 9.46, 21.3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestEave_0"]
+mesh = SubResource("BoxMesh_69")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestEave_0"]
+shape = SubResource("BoxShape3D_70")
+
+[node name="WestClimb_0" type="CSGBox3D" parent="WestShops"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9.145, 5, 21.3)
+cast_shadow = 0
+use_collision = false
+size = Vector3(7.4, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="WestShops/WestClimb_0" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestShops/WestClimb_0/ClimbVolume"]
+shape = SubResource("BoxShape3D_71")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="WestShops/WestClimb_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_72")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="WestShops/WestClimb_0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_73")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="WestBay_1_0_F0" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.61, 10.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_0_F0"]
+mesh = SubResource("BoxMesh_74")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_0_F0"]
+shape = SubResource("BoxShape3D_75")
+
+[node name="WestBay_1_0_F1" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4.81, 10.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_0_F1"]
+mesh = SubResource("BoxMesh_76")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_0_F1"]
+shape = SubResource("BoxShape3D_77")
+
+[node name="WestBay_1_0_F2" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 8, 10.69)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_0_F2"]
+mesh = SubResource("BoxMesh_78")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_0_F2"]
+shape = SubResource("BoxShape3D_79")
+
+[node name="WestSeam_1_0" type="MeshInstance3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 4.8, 7)
+mesh = SubResource("BoxMesh_80")
+surface_material_override/0 = SubResource("StandardMaterial3D_14")
+
+[node name="WestBay_1_1_F0" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.61, 3.31)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_1_F0"]
+mesh = SubResource("BoxMesh_81")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_1_F0"]
+shape = SubResource("BoxShape3D_82")
+
+[node name="WestBay_1_1_F1" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4.81, 3.31)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_1_F1"]
+mesh = SubResource("BoxMesh_83")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_1_F1"]
+shape = SubResource("BoxShape3D_84")
+
+[node name="WestBay_1_1_F2" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 8, 3.31)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_1_1_F2"]
+mesh = SubResource("BoxMesh_85")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_1_1_F2"]
+shape = SubResource("BoxShape3D_86")
+
+[node name="WestEave_1" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 9.46, 7)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestEave_1"]
+mesh = SubResource("BoxMesh_87")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestEave_1"]
+shape = SubResource("BoxShape3D_88")
+
+[node name="WestClimb_1" type="CSGBox3D" parent="WestShops"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9.145, 5, 7)
+cast_shadow = 0
+use_collision = false
+size = Vector3(14.8, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="WestShops/WestClimb_1" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestShops/WestClimb_1/ClimbVolume"]
+shape = SubResource("BoxShape3D_89")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="WestShops/WestClimb_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_90")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="WestShops/WestClimb_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_91")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="WestBay_2_0_F0" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.61, -7.2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_2_0_F0"]
+mesh = SubResource("BoxMesh_92")
+surface_material_override/0 = SubResource("StandardMaterial3D_4")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_2_0_F0"]
+shape = SubResource("BoxShape3D_93")
+
+[node name="WestBay_2_0_F1" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4.81, -7.2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_2_0_F1"]
+mesh = SubResource("BoxMesh_94")
+surface_material_override/0 = SubResource("StandardMaterial3D_5")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_2_0_F1"]
+shape = SubResource("BoxShape3D_95")
+
+[node name="WestBay_2_0_F2" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 8, -7.2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestBay_2_0_F2"]
+mesh = SubResource("BoxMesh_96")
+surface_material_override/0 = SubResource("StandardMaterial3D_6")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestBay_2_0_F2"]
+shape = SubResource("BoxShape3D_97")
+
+[node name="WestEave_2" type="StaticBody3D" parent="WestShops"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 9.46, -7.2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="WestShops/WestEave_2"]
+mesh = SubResource("BoxMesh_98")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="WestShops/WestEave_2"]
+shape = SubResource("BoxShape3D_99")
+
+[node name="WestClimb_2" type="CSGBox3D" parent="WestShops"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9.145, 5, -7.2)
+cast_shadow = 0
+use_collision = false
+size = Vector3(7.2, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="WestShops/WestClimb_2" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestShops/WestClimb_2/ClimbVolume"]
+shape = SubResource("BoxShape3D_100")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="WestShops/WestClimb_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_101")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="WestShops/WestClimb_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_102")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="Station" type="Node3D" parent="."]
+
+[node name="ClockTower" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/ClockTower"]
+mesh = SubResource("BoxMesh_103")
+surface_material_override/0 = SubResource("StandardMaterial3D_9")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/ClockTower"]
+shape = SubResource("BoxShape3D_104")
+
+[node name="ClockFace" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2, -20.72)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/ClockFace"]
+mesh = SubResource("BoxMesh_105")
+surface_material_override/0 = SubResource("StandardMaterial3D_10")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/ClockFace"]
+shape = SubResource("BoxShape3D_106")
+
+[node name="WingEast" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 4.5, -25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/WingEast"]
+mesh = SubResource("BoxMesh_107")
+surface_material_override/0 = SubResource("StandardMaterial3D_8")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/WingEast"]
+shape = SubResource("BoxShape3D_108")
+
+[node name="WingWest" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.975, 4.5, -25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/WingWest"]
+mesh = SubResource("BoxMesh_109")
+surface_material_override/0 = SubResource("StandardMaterial3D_8")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/WingWest"]
+shape = SubResource("BoxShape3D_110")
+
+[node name="WingCapEast" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 9.3, -25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/WingCapEast"]
+mesh = SubResource("BoxMesh_111")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/WingCapEast"]
+shape = SubResource("BoxShape3D_112")
+
+[node name="WingCapWest" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.975, 9.3, -25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/WingCapWest"]
+mesh = SubResource("BoxMesh_113")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/WingCapWest"]
+shape = SubResource("BoxShape3D_114")
+
+[node name="Deck" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.3, -17.125)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/Deck"]
+mesh = SubResource("BoxMesh_115")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/Deck"]
+shape = SubResource("BoxShape3D_116")
+
+[node name="EaveEast" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 9.46, -12.675)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/EaveEast"]
+mesh = SubResource("BoxMesh_117")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/EaveEast"]
+shape = SubResource("BoxShape3D_118")
+
+[node name="SkirtEast" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4.525, -13.425)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/SkirtEast"]
+mesh = SubResource("BoxMesh_119")
+surface_material_override/0 = SubResource("StandardMaterial3D_8")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/SkirtEast"]
+shape = SubResource("BoxShape3D_120")
+
+[node name="ClimbEast" type="CSGBox3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 5, -13.345)
+cast_shadow = 0
+use_collision = false
+size = Vector3(9, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="Station/ClimbEast" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Station/ClimbEast/ClimbVolume"]
+shape = SubResource("BoxShape3D_121")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="Station/ClimbEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_122")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="Station/ClimbEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_123")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="EaveWest" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 9.46, -12.675)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/EaveWest"]
+mesh = SubResource("BoxMesh_124")
+surface_material_override/0 = SubResource("StandardMaterial3D_7")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/EaveWest"]
+shape = SubResource("BoxShape3D_125")
+
+[node name="SkirtWest" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 4.525, -13.425)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/SkirtWest"]
+mesh = SubResource("BoxMesh_126")
+surface_material_override/0 = SubResource("StandardMaterial3D_8")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/SkirtWest"]
+shape = SubResource("BoxShape3D_127")
+
+[node name="ClimbWest" type="CSGBox3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 5, -13.345)
+cast_shadow = 0
+use_collision = false
+size = Vector3(9, 10, 0.35)
+material = SubResource("StandardMaterial3D_12")
+
+[node name="ClimbVolume" type="Area3D" parent="Station/ClimbWest" groups=["climb"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+collision_layer = 8
+collision_mask = 0
+monitorable = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Station/ClimbWest/ClimbVolume"]
+shape = SubResource("BoxShape3D_128")
+
+[node name="ClimbMark" type="MeshInstance3D" parent="Station/ClimbWest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_129")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="ClimbLip" type="MeshInstance3D" parent="Station/ClimbWest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0.225)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_130")
+surface_material_override/0 = SubResource("StandardMaterial3D_11")
+
+[node name="Canopy" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.82, -19)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/Canopy"]
+mesh = SubResource("BoxMesh_131")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/Canopy"]
+shape = SubResource("BoxShape3D_132")
+
+[node name="CanopyPost_0" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8, 1.82, -20.75)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_0"]
+mesh = SubResource("BoxMesh_133")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_0"]
+shape = SubResource("BoxShape3D_134")
+
+[node name="CanopyPost_1" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8, 1.82, -17.25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_1"]
+mesh = SubResource("BoxMesh_135")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_1"]
+shape = SubResource("BoxShape3D_136")
+
+[node name="CanopyPost_2" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 1.82, -20.75)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_2"]
+mesh = SubResource("BoxMesh_137")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_2"]
+shape = SubResource("BoxShape3D_138")
+
+[node name="CanopyPost_3" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 1.82, -17.25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_3"]
+mesh = SubResource("BoxMesh_139")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_3"]
+shape = SubResource("BoxShape3D_140")
+
+[node name="CanopyPost_4" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 1.82, -20.75)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_4"]
+mesh = SubResource("BoxMesh_141")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_4"]
+shape = SubResource("BoxShape3D_142")
+
+[node name="CanopyPost_5" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 1.82, -17.25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_5"]
+mesh = SubResource("BoxMesh_143")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_5"]
+shape = SubResource("BoxShape3D_144")
+
+[node name="CanopyPost_6" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8, 1.82, -20.75)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_6"]
+mesh = SubResource("BoxMesh_145")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_6"]
+shape = SubResource("BoxShape3D_146")
+
+[node name="CanopyPost_7" type="StaticBody3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8, 1.82, -17.25)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Station/CanopyPost_7"]
+mesh = SubResource("BoxMesh_147")
+surface_material_override/0 = SubResource("StandardMaterial3D_13")
+
+[node name="Collision" type="CollisionShape3D" parent="Station/CanopyPost_7"]
+shape = SubResource("BoxShape3D_148")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, -0.439385, 0.368688, 0, 0.642788, 0.766044, -0.573576, -0.627507, 0.526541, 0, 24, 8)
+light_energy = 1.15
+shadow_enabled = true
+shadow_bias = 0.05
+directional_shadow_max_distance = 80.0
+
+[node name="FillLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.819152, 0.439385, -0.368688, 0, 0.642788, 0.766044, 0.573576, 0.627507, -0.526541, 0, 18, 6)
+light_energy = 0.18
+shadow_enabled = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("ENV")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.2, 22)

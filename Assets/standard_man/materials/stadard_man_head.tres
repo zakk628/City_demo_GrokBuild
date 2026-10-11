@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dumj6liw5l2ab" path="res://Assets/standard_man/standardman_panties_standard_man_face.png" id="1_albedo"]
+[ext_resource type="Texture2D" uid="uid://dpi02tl444aia" path="res://Assets/standard_man/standardman_panties_standard_man_face_normal.png" id="2_normal"]
+
+[resource]
+resource_name = "stadard_man_head"
+albedo_texture = ExtResource("1_albedo")
+metallic = 0.0
+metallic_specular = 0.5
+roughness = 0.55
+normal_enabled = true
+normal_scale = 0.8
+normal_texture = ExtResource("2_normal")
+subsurf_scatter_enabled = true
+subsurf_scatter_skin_mode = true
+subsurf_scatter_strength = 0.15

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="City_Cruise_demo"
-run/main_scene="res://Scene/Scene/stage02_climb.tscn"
+run/main_scene="res://Scene/screen_flow.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

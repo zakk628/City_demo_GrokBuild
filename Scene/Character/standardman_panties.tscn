@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dfuco5fq26f87"]
 
 [ext_resource type="PackedScene" uid="uid://c10lh11xaxxl0" path="res://Assets/standard_man/standardman_panties.glb" id="1_1k1ps"]
+[ext_resource type="Material" path="res://Assets/standard_man/materials/stadard_man_eyes.tres" id="2_eyes"]
+[ext_resource type="Material" path="res://Assets/standard_man/materials/stadard_man_head.tres" id="3_head"]
+[ext_resource type="Material" path="res://Assets/standard_man/materials/stadard_man_body_v02.tres" id="4_body"]
 
 [node name="standardman_panties" unique_id=669086940 instance=ExtResource("1_1k1ps")]
 
@@ -90,3 +93,13 @@ transform = Transform3D(1, -3.37674e-14, 1.5099594e-07, 1.5099594e-07, -7.450580
 
 [node name="eye_R" parent="meta_human_rig/Skeleton3D" index="1" unique_id=1347058423]
 transform = Transform3D(1, -3.37674e-14, -1.5099569e-07, -1.5099572e-07, -7.4505806e-08, -1.0000001, -2.533639e-15, 1, -1.0430813e-07, -0.372, 16.664024, 1.6744933)
+
+[node name="eye_L" parent="meta_human_rig/Skeleton3D/eye_L" index="0"]
+surface_material_override/0 = ExtResource("2_eyes")
+
+[node name="eye_R" parent="meta_human_rig/Skeleton3D/eye_R" index="0"]
+surface_material_override/0 = ExtResource("2_eyes")
+
+[node name="meta_human_panties" parent="meta_human_rig/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("3_head")
+surface_material_override/1 = ExtResource("4_body")

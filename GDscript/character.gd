@@ -11,16 +11,19 @@ extends CharacterBody3D
 # Unlocked crouch faces the move direction and plays the forward clip.
 # Locked crouch faces the camera and plays crouch forward, back, left, or right.
 # Stand lock faces the camera and plays lock idle, forward, back, left, or right.
-# Climb cuts crouch and lock. Ctrl+Space with no direction does nothing.
-# Direction already held, then Ctrl+Space: roll. Direction pressed together with Space: dodge.
+# Climb cuts crouch and lock.
+# Ctrl cycles jump, roll, then dodge. Space runs only that mode.
+# Roll faces the move direction, or keeps the current front. Dodge needs a direction.
 
 const Anim := preload("res://GDscript/anime_controller.gd")
 
 const SPEED_WALK := 1.45
 const SPEED_RUN := 3.6
 const SPEED_SPRINT := 6.4
+const ANIM_SCALE_WALK := 1.2
+const ANIM_SCALE_RUN := 1.5
+const ANIM_SCALE_SPRINT := 2.0
 const JUMP_SPEED := 6.2
-const ROLL_PREHOLD := 0.18
 const CLIMB_GROUND_Y := 0.45
 const GROUND_MASK := 3
 const CLIMB_MASK := 1
@@ -30,8 +33,10 @@ const DIR_KEYS: Array[int] = [
 ]
 
 enum Phase { GROUND, JUMP_START, JUMP_AIR, JUMP_LAND, ROLL, DODGE, CLIMB }
+enum ActionMode { JUMP, ROLL, DODGE }
 
 var _phase: Phase = Phase.GROUND
+var _action_mode: ActionMode = ActionMode.JUMP
 var _anime: Anim
 var _capsule_radius := 0.4
 var _gravity := 9.8
@@ -50,7 +55,9 @@ var _crouching := false
 var _locked := false
 var _c_was := false
 var _middle_was := false
+var _ctrl_was := false
 var _lock_label: Label
+var _mode_label: Label
 
 func _ready() -> void:
 	_gravity = float(ProjectSettings.get_setting("physics/3d/default_gravity"))
@@ -92,11 +99,7 @@ func _try_start_action() -> void:
 			_cut_crouch_and_lock()
 			_enter_climb()
 			return
-		if space_just and not _ctrl_down():
-			_enter_jump()
-			return
-		if space_just and _ctrl_down():
-			_enter_evade()
+		if space_just and _start_mode_action():
 			return
 		_update_ground_anim()
 	elif _phase == Phase.CLIMB:
@@ -205,21 +208,36 @@ func _begin_land() -> void:
 	velocity.y = 0.0
 	_anime.play(Anim.ANIM_JUMP_LAND, false)
 
-func _enter_evade() -> void:
+func _start_mode_action() -> bool:
+	match _action_mode:
+		ActionMode.ROLL:
+			_enter_roll()
+			return true
+		ActionMode.DODGE:
+			return _enter_dodge()
+		_:
+			_enter_jump()
+			return true
+
+func _enter_roll() -> void:
+	var wish := _wish_dir()
+	if wish.length_squared() > 0.01:
+		_face_direction(wish.normalized())
+	_phase = Phase.ROLL
+	velocity = Vector3.ZERO
+	_anime.play(Anim.ANIM_ROLL, false)
+
+func _enter_dodge() -> bool:
+	if _wish_dir().length_squared() <= 0.01:
+		return false
 	var key := _newest_dir_key()
 	if key == 0:
-		return
-	var age := _key_age(key)
-	if age >= ROLL_PREHOLD:
-		_face_direction(_wish_dir())
-		_phase = Phase.ROLL
-		velocity = Vector3.ZERO
-		_anime.play(Anim.ANIM_ROLL, false)
-	else:
-		_face_camera_forward()
-		_phase = Phase.DODGE
-		velocity = Vector3.ZERO
-		_anime.play(_dodge_anim(key), false)
+		return false
+	_face_camera_forward()
+	_phase = Phase.DODGE
+	velocity = Vector3.ZERO
+	_anime.play(_dodge_anim(key), false)
+	return true
 
 func _enter_climb() -> void:
 	var wall := _find_climb_wall()
@@ -358,6 +376,17 @@ func _poll_toggles() -> void:
 		if _locked:
 			_face_camera_forward()
 	_middle_was = middle_down
+	var ctrl_down := Input.is_physical_key_pressed(KEY_CTRL)
+	if ctrl_down and not _ctrl_was:
+		match _action_mode:
+			ActionMode.JUMP:
+				_action_mode = ActionMode.ROLL
+			ActionMode.ROLL:
+				_action_mode = ActionMode.DODGE
+			_:
+				_action_mode = ActionMode.JUMP
+		_refresh_mode_label()
+	_ctrl_was = ctrl_down
 
 func _cut_crouch_and_lock() -> void:
 	_crouching = false
@@ -386,6 +415,8 @@ func _prepare_facing() -> void:
 	_face_direction(wish.normalized())
 
 func _root_time_scale() -> float:
+	if _phase == Phase.GROUND and not _crouching and not _locked:
+		return _stand_gait_anim_scale()
 	if _phase != Phase.GROUND or not (_crouching or _locked):
 		return 1.0
 	var gait := 1.0
@@ -394,6 +425,17 @@ func _root_time_scale() -> float:
 	elif _alt_down():
 		gait = SPEED_WALK / SPEED_RUN
 	return gait * _anime.root_clip_scale(_anime.current_animation())
+
+func _stand_gait_anim_scale() -> float:
+	match _anime.current_animation():
+		Anim.ANIM_WALK:
+			return ANIM_SCALE_WALK
+		Anim.ANIM_RUN:
+			return ANIM_SCALE_RUN
+		Anim.ANIM_SPRINT:
+			return ANIM_SCALE_SPRINT
+		_:
+			return 1.0
 
 func _step_root_motion(delta: float, root_world: Vector3) -> void:
 	velocity.x = root_world.x / delta
@@ -471,6 +513,28 @@ func _build_lock_label() -> void:
 	_lock_label.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 	_lock_label.offset_top = 24.0
 	_lock_label.offset_bottom = 88.0
+	_mode_label = Label.new()
+	_mode_label.name = "ModeLabel"
+	_mode_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_mode_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_mode_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_mode_label.label_settings = settings
+	layer.add_child(_mode_label)
+	_mode_label.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	_mode_label.offset_top = 96.0
+	_mode_label.offset_bottom = 160.0
+	_refresh_mode_label()
+
+func _refresh_mode_label() -> void:
+	if _mode_label == null:
+		return
+	match _action_mode:
+		ActionMode.ROLL:
+			_mode_label.text = "翻滾"
+		ActionMode.DODGE:
+			_mode_label.text = "閃避"
+		_:
+			_mode_label.text = "跳躍"
 
 func _update_climb_anim() -> void:
 	var anim_name := Anim.ANIM_CLIMB_IDLE
@@ -640,11 +704,6 @@ func _update_key_times() -> void:
 func _key_held(key: int) -> bool:
 	return _key_since.has(key)
 
-func _key_age(key: int) -> float:
-	if not _key_since.has(key):
-		return 0.0
-	return Time.get_ticks_msec() / 1000.0 - float(_key_since[key])
-
 func _newest_dir_key() -> int:
 	var best := 0
 	var best_since := -1.0
@@ -659,9 +718,6 @@ func _newest_dir_key() -> int:
 
 func _shift_down() -> bool:
 	return Input.is_physical_key_pressed(KEY_SHIFT)
-
-func _ctrl_down() -> bool:
-	return Input.is_physical_key_pressed(KEY_CTRL)
 
 func _alt_down() -> bool:
 	return Input.is_physical_key_pressed(KEY_ALT)
