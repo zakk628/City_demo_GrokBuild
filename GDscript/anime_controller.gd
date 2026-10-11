@@ -2,13 +2,12 @@ extends Node
 
 # Locomotion states for the standard male.
 # Walk, run and sprint do not translate a control bone. Dodge, climb, roll and crouch do.
-# Roll's travel is on main_control_Lv02. Everything else uses main_control_Lv01.
-# Forward and back crouch clips ship with a single zero key on that bone.
-# Their cycle distance is copied from the left crouch clip so root motion still drives them.
-# Left and right crouch are 19 frames; forward and back are 39. TimeScale evens that speed gap.
-# Stand-lock forward and back also have a single zero key. Their stride is copied from lock-left.
-# Lock left and right are 14 frames; lock forward and back are 39. TimeScale evens that speed gap.
-# Blends stay at zero: climb-down starts at Y=6, and a capture blend cancels that descent.
+# Roll, dodge, crouch and lock travel are read from main_control_Lv01. Clips are not rewritten.
+# Crouch and lock forward/back are 39-frame two-step cycles with no Lv01 travel.
+# Their playback stride is the mean lateral distance, along +Z and -Z, and is not keyed in.
+# Crouch left/right stay 19-frame half-steps. Lock left/right stay 14-frame loops.
+# TimeScale on those four clips matches horizontal meters per second to forward.
+# Alt and Shift multiply that scale. Blends stay at zero: climb-down starts at Y=6.
 
 const ANIM_IDLE := "stdman_move00_idle_01"
 const ANIM_WALK := "stdman_move01_walk"
@@ -59,7 +58,6 @@ var _tree: AnimationTree
 var _skeleton: Skeleton3D
 var _playback: AnimationNodeStateMachinePlayback
 var _bone_lv01 := -1
-var _bone_lv02 := -1
 var _current := ""
 var _root_valid := false
 var _root_prev := Vector3.ZERO
@@ -68,6 +66,7 @@ var _span := {}
 var _time_scale := 1.0
 var _crouch_clip_scale := {}
 var _lock_clip_scale := {}
+var _virtual_stride := {}
 
 func _ready() -> void:
 	var body := get_parent().get_parent()
@@ -78,9 +77,8 @@ func _ready() -> void:
 		push_error("anime_controller: AnimationPlayer, Skeleton3D or AnimationTree missing")
 		return
 	_bone_lv01 = _skeleton.find_bone("main_control_Lv01")
-	_bone_lv02 = _skeleton.find_bone("main_control_Lv02")
-	if _bone_lv01 < 0 or _bone_lv02 < 0:
-		push_error("anime_controller: main_control bones missing")
+	if _bone_lv01 < 0:
+		push_error("anime_controller: main_control_Lv01 missing")
 		return
 	_player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	_player.playback_auto_capture = false
@@ -89,8 +87,7 @@ func _ready() -> void:
 	_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	_tree.anim_player = _tree.get_path_to(_player)
 	_ensure_states()
-	_fill_missing_crouch_root()
-	_fill_missing_lock_root()
+	_prepare_playback_strides()
 	_cache_root_spans()
 	_apply_crouch_key_spans()
 	_apply_lock_key_spans()
@@ -166,8 +163,8 @@ func oneshot_done() -> bool:
 	var length := _player.current_animation_length
 	return length > 0.0 and _player.current_animation_position >= length - 0.001
 
-func consume_root_motion(prefer_lv02: bool) -> Vector3:
-	var bone := _bone_lv02 if (prefer_lv02 or _current == ANIM_ROLL) else _bone_lv01
+func consume_root_motion() -> Vector3:
+	var bone := _bone_lv01
 	if bone < 0 or _skeleton == null:
 		return Vector3.ZERO
 	_skeleton.force_update_all_bone_transforms()
@@ -178,6 +175,7 @@ func consume_root_motion(prefer_lv02: bool) -> Vector3:
 		delta = pos - _root_prev
 		if time + 0.0001 < _root_time:
 			delta += _span.get(_current, Vector3.ZERO)
+		delta += _virtual_step(_current, time)
 	_root_prev = pos
 	_root_time = time
 	_root_valid = true
@@ -238,7 +236,7 @@ func _cache_root_spans() -> void:
 	for anim_name in names:
 		if _find_animation(anim_name) == null:
 			continue
-		var bone := _bone_lv02 if anim_name == ANIM_ROLL else _bone_lv01
+		var bone := _bone_lv01
 		_player.play(anim_name)
 		_player.seek(0.0, true)
 		_player.advance(0.0)
@@ -252,41 +250,55 @@ func _cache_root_spans() -> void:
 		_span[anim_name] = ending - start
 	_player.stop()
 
-func _fill_missing_crouch_root() -> void:
-	var stride := _key_span(ANIM_CROUCH_L).x
-	if absf(stride) < 0.05:
-		stride = -_key_span(ANIM_CROUCH_R).x
-	if absf(stride) < 0.05:
-		return
-	stride = absf(stride)
-	_write_linear_root(ANIM_CROUCH_F, Vector3(0.0, 0.0, stride))
-	_write_linear_root(ANIM_CROUCH_B, Vector3(0.0, 0.0, -stride))
+func _prepare_playback_strides() -> void:
+	_set_playback_stride(ANIM_CROUCH_F, ANIM_CROUCH_B, ANIM_CROUCH_L, ANIM_CROUCH_R)
+	_set_playback_stride(ANIM_LOCK_F, ANIM_LOCK_B, ANIM_LOCK_L, ANIM_LOCK_R)
 
-func _fill_missing_lock_root() -> void:
-	var stride := absf(_key_span(ANIM_LOCK_L).x)
-	if stride < 0.05:
-		stride = absf(_key_span(ANIM_LOCK_R).x)
+func _set_playback_stride(forward_name: String, back_name: String, left_name: String, right_name: String) -> void:
+	if _horizontal_distance(forward_name) >= 0.05 and _horizontal_distance(back_name) >= 0.05:
+		return
+	var stride := _lateral_stride(left_name, right_name)
 	if stride < 0.05:
 		return
-	_write_linear_root(ANIM_LOCK_F, Vector3(0.0, 0.0, stride))
-	_write_linear_root(ANIM_LOCK_B, Vector3(0.0, 0.0, -stride))
+	if _horizontal_distance(forward_name) < 0.05:
+		_virtual_stride[forward_name] = Vector3(0.0, 0.0, stride)
+	if _horizontal_distance(back_name) < 0.05:
+		_virtual_stride[back_name] = Vector3(0.0, 0.0, -stride)
 
-func _write_linear_root(anim_name: String, end_value: Vector3) -> void:
+func _lateral_stride(left_name: String, right_name: String) -> float:
+	var total := 0.0
+	var count := 0
+	for anim_name in [left_name, right_name]:
+		var stride := _horizontal_distance(anim_name)
+		if stride < 0.05:
+			continue
+		total += stride
+		count += 1
+	if count == 0:
+		return 0.0
+	return total / float(count)
+
+func _virtual_step(anim_name: String, time: float) -> Vector3:
+	if not _virtual_stride.has(anim_name):
+		return Vector3.ZERO
+	var length := _clip_length(anim_name)
+	if length <= 0.0001:
+		return Vector3.ZERO
+	var anim_dt := time - _root_time
+	if time + 0.0001 < _root_time:
+		anim_dt += length
+	var stride: Vector3 = _virtual_stride[anim_name]
+	return stride * (anim_dt / length)
+
+func _clip_length(anim_name: String) -> float:
 	var anim := _find_animation(anim_name)
 	if anim == null:
-		return
-	var track := _position_track(anim, "main_control_Lv01")
-	if track < 0 or _track_horizontal_range(anim, track) > 0.05:
-		return
-	var editable := anim.duplicate() as Animation
-	track = _position_track(editable, "main_control_Lv01")
-	editable.track_set_interpolation_type(track, Animation.INTERPOLATION_LINEAR)
-	while editable.track_get_key_count(track) > 0:
-		editable.track_remove_key(track, 0)
-	var length := maxf(editable.length - 0.0001, 0.0)
-	editable.track_insert_key(track, 0.0, Vector3.ZERO)
-	editable.track_insert_key(track, length, end_value)
-	_replace_animation(anim_name, editable)
+		return 0.0
+	return anim.length
+
+func _horizontal_distance(anim_name: String) -> float:
+	var span := _key_span(anim_name)
+	return Vector2(span.x, span.z).length()
 
 func _apply_crouch_key_spans() -> void:
 	for clip in [ANIM_CROUCH_F, ANIM_CROUCH_B, ANIM_CROUCH_L, ANIM_CROUCH_R]:
@@ -301,29 +313,33 @@ func _apply_lock_key_spans() -> void:
 			_span[clip] = span
 
 func _cache_crouch_scales() -> void:
-	_cache_side_scales(ANIM_CROUCH_F, [ANIM_CROUCH_L, ANIM_CROUCH_R], 19.0 / 39.0, _crouch_clip_scale)
+	_cache_side_scales(ANIM_CROUCH_F, [ANIM_CROUCH_L, ANIM_CROUCH_R], _crouch_clip_scale)
 
 func _cache_lock_scales() -> void:
-	_cache_side_scales(ANIM_LOCK_F, [ANIM_LOCK_L, ANIM_LOCK_R], 14.0 / 39.0, _lock_clip_scale)
+	_cache_side_scales(ANIM_LOCK_F, [ANIM_LOCK_L, ANIM_LOCK_R], _lock_clip_scale)
 
-func _cache_side_scales(forward_name: String, sides: Array, fallback: float, store: Dictionary) -> void:
+func _cache_side_scales(forward_name: String, sides: Array, store: Dictionary) -> void:
 	var forward_rate := _horizontal_rate(forward_name)
+	var back_name := ANIM_CROUCH_B if forward_name == ANIM_CROUCH_F else ANIM_LOCK_B
+	var back_rate := _horizontal_rate(back_name)
+	if forward_rate <= 0.0001:
+		forward_rate = back_rate
 	for clip in sides:
 		var rate := _horizontal_rate(String(clip))
 		if forward_rate > 0.0001 and rate > 0.0001:
 			store[clip] = forward_rate / rate
 		else:
-			store[clip] = fallback
+			store[clip] = 1.0
 
 func _horizontal_rate(anim_name: String) -> float:
-	var length := 0.0
-	var anim := _find_animation(anim_name)
-	if anim:
-		length = anim.length
+	var length := _clip_length(anim_name)
 	if length <= 0.0001:
 		return 0.0
-	var span: Vector3 = _span.get(anim_name, Vector3.ZERO)
-	return Vector2(span.x, span.z).length() / length
+	var distance := _horizontal_distance(anim_name)
+	if distance < 0.05 and _virtual_stride.has(anim_name):
+		var stride: Vector3 = _virtual_stride[anim_name]
+		distance = Vector2(stride.x, stride.z).length()
+	return distance / length
 
 func _key_span(anim_name: String) -> Vector3:
 	var anim := _find_animation(anim_name)
@@ -343,25 +359,6 @@ func _position_track(anim: Animation, bone_name: String) -> int:
 		if String(anim.track_get_path(i)).ends_with(bone_name):
 			return i
 	return -1
-
-func _track_horizontal_range(anim: Animation, track: int) -> float:
-	var min_p := Vector3(INF, INF, INF)
-	var max_p := Vector3(-INF, -INF, -INF)
-	for k in anim.track_get_key_count(track):
-		var value: Vector3 = anim.track_get_key_value(track, k)
-		min_p = min_p.min(value)
-		max_p = max_p.max(value)
-	var span := max_p - min_p
-	return Vector2(span.x, span.z).length()
-
-func _replace_animation(anim_name: String, anim: Animation) -> void:
-	for lib_name in _player.get_animation_library_list():
-		var lib := _player.get_animation_library(lib_name)
-		if not lib.has_animation(anim_name):
-			continue
-		lib.remove_animation(anim_name)
-		lib.add_animation(anim_name, anim)
-		return
 
 func _find_animation(anim_name: String) -> Animation:
 	if _player == null:

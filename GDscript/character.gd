@@ -78,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	_prepare_facing()
 	_anime.set_time_scale(_root_time_scale())
 	_anime.advance(delta)
-	var root_world := _anime.consume_root_motion(_phase == Phase.ROLL)
+	var root_world := _anime.consume_root_motion()
 	match _phase:
 		Phase.GROUND:
 			_step_ground(delta, root_world)
